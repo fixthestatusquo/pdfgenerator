@@ -6,6 +6,7 @@
   "main": "worker.js",
   "scripts": {
     "start": "parcel src/index.html",
+    "heroku-postbuild": "echo \"nothing to build\"",
     "build": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'",
@@ -20,13 +21,12 @@
     "@babel/core": "^7.10.3",
     "@babel/plugin-transform-runtime": "^7.10.3",
     "eslint-config-standard": "^14.1.1",
-    "jspdf": "^1.5.3",
-    "node-fetch": "^2.6.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.18.2"
   },
   "dependencies": {
     "esm": "^3.2.25",
+    "node-fetch": "^2.6.0",
     "pdf-lib": "^1.8.0",
     "qrcode": "^1.4.4"
   }
