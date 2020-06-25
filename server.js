@@ -8,7 +8,7 @@ import {downloadBlob, getParams} from "./src/browser.js";
 
 const requestListener = async function (req, res) {
   let template =null;
-  const data = getParams(req.headers.host + req.url);
+  const data = getParams("https://"+req.headers.host + req.url);
   if (!data.pdf)
     data.pdf="initiative";
   const r = await fetch('https://static.tttp.eu/ch/' + data['pdf'] +".pdf")
