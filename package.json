@@ -2,7 +2,7 @@
   "private": true,
   "name": "worker",
   "version": "1.0.0",
-  "description": "A template for kick starting a Cloudflare Workers project",
+  "description": "Generate PDFs for CH initiatives",
   "main": "worker.js",
   "scripts": {
     "start": "parcel src/index.html",

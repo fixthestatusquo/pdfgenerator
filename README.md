@@ -1,15 +1,25 @@
-# 👷 `worker-template` Hello World
 
-A template for kick starting a Cloudflare worker project.
+#params
 
-[`index.js`](https://github.com/cloudflare/worker-template/blob/master/index.js) is the content of the Workers script.
+?postalcode=1234&canton=ZZ&birthdate=1970/01/01&address=1%20rue%20de%20la%20republique&locality=geneva%20city&qrcode=id:campaign&pdf=xxx
 
-#### Wrangler
+# 4 ways of running it:
 
-To generate using [wrangler](https://github.com/cloudflare/wrangler)
+## as a html/js client only:
 
-```
-wrangler generate projectname https://github.com/cloudflare/worker-template
-```
+yarn build
+/build/index.html
 
-Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+## as a node server
+node -r esm server.js
+
+## on heroku
+(minimal node js server as above)
+git push heroku main:master
+
+
+## Wrangler (cloudflare)
+
+This needs *super* light pdf templates, borderline not working ;(
+
+

@@ -9,8 +9,6 @@ async function getTemplate(url) {
   
   const response = await fetch(url)
   const buf= await response.arrayBuffer();
-  //const buf = await response.buffer()
-  //  console.log("aaa",buf);
   return buf //.toString();
 }
 
@@ -18,6 +16,7 @@ async function getTemplate(url) {
   const data = getParams(document.location);
 
   const pdfBlob = await generatePdf(data, "https://static.tttp.eu/ch/"+data.pdf+".pdf")
+  //const pdfBlob = await generatePdf(data, "/templates/"+data.pdf+".pdf")
 
   downloadBlob(pdfBlob, `initiative.pdf`)
 

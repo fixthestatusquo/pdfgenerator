@@ -3,7 +3,7 @@ const http = require('http');
 const fetch = require('node-fetch');
 //require = require("esm")(module/*, options*/)
 
-import {generatePdf, getProfile} from "./src/pdf.js"
+import {generatePdf} from "./src/pdf.js"
 import {downloadBlob, getParams} from "./src/browser.js";
 
 const requestListener = async function (req, res) {

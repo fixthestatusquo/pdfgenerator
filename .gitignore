@@ -1,0 +1,13 @@
+/templates
+/target
+/dist
+.cache
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+wrangler.toml
+worker/
+node_modules/
+.cargo-ok
