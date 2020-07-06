@@ -66,7 +66,6 @@ export async function generatePdf (data, pdfBase) {
   const page1 = pdfDoc.getPages()[0]
   const { width, height } = page1.getSize()
   const factor = { x: width/210, y: height/297 } // mm->coordinate 
-  console.log(width,height,factor);
 
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica)
 
@@ -75,7 +74,6 @@ export async function generatePdf (data, pdfBase) {
 
   const drawText = (text, x, y, size = 10) => {
     if (!text) return;
-    console.log(x*factor.x, height - y*factor.y);
     x = x*factor.x;
     y = height- y*factor.y;
     page1.drawText(text, { x, y, size, font })
