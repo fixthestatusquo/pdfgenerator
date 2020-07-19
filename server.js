@@ -10,8 +10,8 @@ const requestListener = async function (req, res) {
   let template =null;
   const data = getParams("https://"+req.headers.host + req.url);
   if (!data.pdf)
-    data.pdf="initiative";
-  const r = await fetch('https://static.tttp.eu/ch/' + data['pdf'] +".pdf")
+   data.pdf="https://collect-backend.campax.org/wp-content/uploads/2020/07/Vorlage-03-Initiative-NEUTRAL-1.pdf";
+  const r = await fetch(data['pdf'])
   if (r.ok) {
     template = await r.buffer()
   }
@@ -25,3 +25,4 @@ const requestListener = async function (req, res) {
 
 const server = http.createServer(requestListener);
 server.listen(PORT);
+console.log("running on port "+PORT);
