@@ -20,11 +20,12 @@ function pad (str) {
   return String(str).padStart(2, '0')
 }
 
-function getFormattedDate (date) {
+function formatDate (date) {
+  if (isNaN(date.getTime())) return "";
   const year = date.getFullYear()
   const month = pad(date.getMonth() + 1) // Les mois commencent à 0
   const day = pad(date.getDate())
-  return `${year}-${month}-${day}`
+  return `${day}/${month}/${year}`
 }
 
 //document.addEventListener('DOMContentLoaded', setReleaseDateTime)
@@ -62,7 +63,7 @@ export async function generatePdf (data, pdfBase) {
   pdfDoc.setSubject('Initiative')
   pdfDoc.setProducer('Proca')
   pdfDoc.setCreator('Proca')
-
+  const birthdate = formatDate(new Date(data.birthdate))
   const page1 = pdfDoc.getPages()[0]
   const { width, height } = page1.getSize()
   const factor = { x: width/210, y: height/297 } // mm->coordinate 
@@ -84,8 +85,7 @@ export async function generatePdf (data, pdfBase) {
   drawText(data.locality, left + 60, top )
   drawText(data.canton, left + 140, top + 0.8,12)
 
-
-  drawText(data.birthdate, left + 72, top + 15)
+  drawText(birthdate, left + 72, top + 15)
   drawText(data.address,left + 96, top + 15, 8 )
 
   if (data.qrcode) {
