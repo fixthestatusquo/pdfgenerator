@@ -6,6 +6,11 @@ const fetch = require('node-fetch');
 import {generatePdf} from "./src/pdf.js"
 import {downloadBlob, getParams} from "./src/browser.js";
 
+const pdfFilename = (url) => {
+  const s = url.split("/");
+  return s[s.length-1];
+}
+
 const requestListener = async function (req, res) {
   let template =null;
   const data = getParams("https://"+req.headers.host + req.url);
@@ -17,7 +22,10 @@ const requestListener = async function (req, res) {
   }
 
   const output = await generatePdf(data, template)
-  res.writeHead(200);
+  res.writeHead(200, {
+    'Content-Disposition': 'attachment; filename=' + pdfFilename(data['pdf']),
+    'Content-Type': 'application/pdf'
+  });
   res.write(new Buffer.from(output),'binary');
   res.end(null,'binary');
 
