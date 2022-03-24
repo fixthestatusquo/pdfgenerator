@@ -14,9 +14,11 @@ const pdfFilename = (url) => {
 const requestListener = async function (req, res) {
   let template =null;
   const data = getParams("https://"+req.headers.host + req.url);
-  if (!data.pdf)
-   data.pdf="https://static.tttp.eu/bffa/ANNEX-III-A_FR-FR.pdf";
-  console.log ("data",data.pdf);
+  console.log ("data",data);
+  if (!data.variant)
+    data.variant ="A_FR-FR";
+
+  data.pdf="https://static.tttp.eu/bffa/ANNEX-III-"+data.variant+".pdf";
   const r = await fetch(data['pdf'])
   if (r.ok) {
     template = await r.buffer()

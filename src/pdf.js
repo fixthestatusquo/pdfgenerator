@@ -71,8 +71,8 @@ console.log(data);
 
   const font = await pdfDoc.embedFont(StandardFonts.Helvetica)
 
-  const left = data.left || 10
-  const top = parseInt(data.top,10) || 207
+  const left = data.left || 16
+  const top = parseInt(data.top,10) || 44
 
   const drawText = (text, x, y, size = 10) => {
     if (!text) return;
@@ -89,15 +89,18 @@ console.log(data);
   drawText(birthdate, left + 72, top + 15)
   drawText(data.address,left + 96, top + 15, 8 )
 
+  if (!data.qrcode) 
+    data.qrcode="test";
+
   if (data.qrcode) {
     const generatedQR = await generateQR(data.qrcode)
     const qrImage = await pdfDoc.embedPng(generatedQR)
 
     page1.drawImage(qrImage, {
-      x: width - factor.x*26,
+      x: width - factor.x* (left),
       y: height - factor.y * (top + 2),
-      width: 44,
-      height: 44,
+      width: 58,
+      height: 58,
     })
   }
 
