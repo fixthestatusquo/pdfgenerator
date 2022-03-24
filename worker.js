@@ -18,8 +18,8 @@ async function handleRequest(request) {
   const data = getParams(request.url);
   console.log(data);
   if (!data.pdf) 
-    data.pdf="initiative";
-  const r = await fetch('https://static.tttp.eu/ch/' + data['pdf'] +".pdf")
+    data.pdf="A_FR-FR";
+  const r = await fetch('https://static.tttp.eu/bffa/ANNEX-III-' + data['pdf'] +".pdf")
   if (r.ok) {
     const buf = await r.arrayBuffer()
     template = new Uint8Array(await buf)

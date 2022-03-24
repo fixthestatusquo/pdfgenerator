@@ -15,7 +15,8 @@ const requestListener = async function (req, res) {
   let template =null;
   const data = getParams("https://"+req.headers.host + req.url);
   if (!data.pdf)
-   data.pdf="https://collect-backend.campax.org/wp-content/uploads/2020/07/Vorlage-03-Initiative-NEUTRAL-1.pdf";
+   data.pdf="https://static.tttp.eu/bffa/ANNEX-III-A_FR-FR.pdf";
+  console.log ("data",data.pdf);
   const r = await fetch(data['pdf'])
   if (r.ok) {
     template = await r.buffer()

@@ -58,8 +58,9 @@ export async function generatePdf (data, pdfBase) {
 
   const pdfDoc = await PDFDocument.load(existingPdfBytes)
 
+console.log(data);
   // set pdf metadata
-  pdfDoc.setTitle('Campax')
+  pdfDoc.setTitle('ECI')
   pdfDoc.setSubject('Initiative')
   pdfDoc.setProducer('Proca')
   pdfDoc.setCreator('Proca')
