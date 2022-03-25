@@ -3,12 +3,10 @@ export function getParams (url) {
   const searchParams = new URL(url).searchParams
 
   const textParams = [
-    'locality',
-    'postalcode',
-    'canton',
-    'birthdate',
-    'address',
     'qrcode',
+    'country',
+    'lang',
+    'variant',
     'top',
     'left',
     'pdf',
