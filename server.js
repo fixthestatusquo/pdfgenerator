@@ -54,7 +54,7 @@ const requestListener = async function (req, res) {
     })
   }
   if (data.lang)
-    variant = variant.slice(0,-2)+ data.language;
+    variant = variant.slice(0,-2)+ data.lang;
 
   data.pdf="https://static.tttp.eu/bffa/ANNEX-III-"+variant+".pdf";
   console.log ("data",data);
