@@ -53,6 +53,9 @@ const requestListener = async function (req, res) {
         variant = d;
     })
   }
+  if (data.lang)
+    variant = variant.slice(0,-2)+ data.language;
+
   data.pdf="https://static.tttp.eu/bffa/ANNEX-III-"+variant+".pdf";
   console.log ("data",data);
   const r = await fetch(data['pdf'])
