@@ -97,7 +97,7 @@ console.log(data);
     const qrImage = await pdfDoc.embedPng(generatedQR)
 
     page1.drawImage(qrImage, {
-      x: width - factor.x* (left),
+      x: width - factor.x* (left-10),
       y: height - factor.y * (top + 2),
       width: 58,
       height: 58,
